@@ -21,10 +21,9 @@ const DEFAULT_ED25519_DERIVATION_PATH = "m/44'/4218'/0'/0'/0'";
 describe('iota unit test case', () => {
     //创建账号
     test("createAccount", async () => {
-        const okWallet = "auto fun permit symbol gravity brush cross one rough gentle grit topic";
-        //const  iotaWallet="lunch dial group okay pigeon lizard auction flip cycle soccer knee jealous another velvet right build broom live level crowd west keep try calm"
+        const okWallet = "";
+        //const  iotaWallet=""
         // iotaWallet :   0x89937666cbae038acca40a6981211039616767a564067f233c84c5631a48560a
-        //iotaprivkey1qreg08ph3tcvetfsj9r76rxfrpezgltf6gz42q8naw0vkrnndrsj67f7qul
 
         const keypair = Ed25519Keypair.deriveKeypair(okWallet, DEFAULT_ED25519_DERIVATION_PATH);
         const param={
@@ -36,7 +35,7 @@ describe('iota unit test case', () => {
             address: keypair.getPublicKey().toIotaAddress()
         }
         console.log(JSON.stringify(param))
-       //{"publicKey":"AJJITMgYqkMlXxHgPOx0tre0mB77jZhC76udrguJWiXS","privateKey":"iotaprivkey1qqahtf3j7aaq7t5k9rf8w7vclc85spw7nxu2qmfmtzd8wtl68fgcxqj2xwz","address":"0xff790a2dcd080217af7425f5a26d30f99096128b454d4d7f90a6999bb8dc3276"}
+       //{"publicKey":"","privateKey":"","address":"0xff790a2dcd080217af7425f5a26d30f99096128b454d4d7f90a6999bb8dc3276"}
     });
 
 
@@ -44,7 +43,7 @@ describe('iota unit test case', () => {
     test("getBalance", async () => {
       const ss= getFullnodeUrl('testnet');
         const balance=await client.getBalance({
-            owner: '0xff790a2dcd080217af7425f5a26d30f99096128b454d4d7f90a6999bb8dc3276',
+            owner: '',
             coinType: null  //默认查询iota
         })
         //balance=totalBalance/9位数
@@ -55,7 +54,7 @@ describe('iota unit test case', () => {
 
     //私钥推公钥,地址
     test("importPrivateKeyAddress", async () => {
-       const secretKey1 = 'iotaprivkey1qqahtf3j7aaq7t5k9rf8w7vclc85spw7nxu2qmfmtzd8wtl68fgcxqj2xwz';
+       const secretKey1 = '';
         const { secretKey } = decodeIotaPrivateKey(secretKey1);
         //使用 getSecretKey 方法将密钥对导出到 Bech32 编码的密钥。
         const keypair = Ed25519Keypair.fromSecretKey(secretKey);
